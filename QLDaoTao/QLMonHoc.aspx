@@ -1,13 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QLMonHoc.aspx.cs" Inherits="QLDaoTao.QLMonHoc" %>
+﻿<%@ Page Title="Trang quản trị môn học" Language="C#" MasterPageFile="~/Site.Master"
+    AutoEventWireup="true" CodeBehind="QLMonHoc.aspx.cs" Inherits="QLDaoTao.QLMonHoc" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-    <h2>Quản lí môn học</h2>
+
+    <h2>QUẢN LÝ MÔN HỌC</h2>
     <hr />
     <div>
         <button type="button" class="btn btn-info btn-lg" style="margin-bottom: 5px;" data-toggle="modal" data-target="#modalOpenAddButton">Thêm mới</button>
@@ -24,17 +26,17 @@
                         <div>
                             <div class="form-group">
                                 <label>Mã môn</label>
-                                <asp:TextBox ID="txtMaMH" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtMamh" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
 
                             <div class="form-group">
                                 <label>Tên môn</label>
-                                <asp:TextBox ID="txtTenMH" CssClass="form-control" runat="server" ControlToValidate="txtTenMH"></asp:TextBox>
+                                <asp:TextBox ID="txtTenmh" CssClass="form-control" runat="server" ControlToValidate="txtTenmh"></asp:TextBox>
                             </div>
 
                             <div class="form-group">
                                 <label>Số tiết</label>
-                                <asp:TextBox ID="txtSoTiet" CssClass="form-control" runat="server" ControlToValidate="txtSoTiet"></asp:TextBox>
+                                <asp:TextBox ID="txtsotiet" CssClass="form-control" runat="server" ControlToValidate="txtsotiet"></asp:TextBox>
                             </div>
 
                             <div class="form-group">
@@ -57,7 +59,7 @@
         <div class="col-md-8">
             <h4>DANH SÁCH MÔN HỌC</h4>
             <asp:GridView CssClass="table table-bordered"
-                ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH" AllowPaging="true" PageSize="5" OnRowCancelingEdit="gvMonhoc_RowCancelingEdit" OnRowDeleting="gvMonhoc_RowDeleting" OnRowEditing="gvMonhoc_RowEditing" OnRowUpdating="gvMonhoc_RowUpdating" OnPageIndexChanging="gvMonhoc_PageIndexChanging">
+                ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH" AllowPaging="true" PageSize="5" OnSelectedIndexChanged="gvMonhoc_SelectedIndexChanged" OnPageIndexChanging="gvMonhoc_PageIndexChanging" OnRowCancelingEdit="gvMonhoc_RowCancelingEdit" OnRowDeleting="gvMonhoc_RowDeleting" OnRowEditing="gvMonhoc_RowEditing1" OnRowUpdating="gvMonhoc_RowUpdating">
                 <Columns>
                     <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" />
                     <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
@@ -71,9 +73,9 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:Button ID="btUpdate" CommandName="Update" runat="server"
-                                Text="Ghi" CssClass="btn btn-success" />
+                                Text="Cập nhật" CssClass="btn btn-success" />
                             <asp:Button ID="btCancel" CommandName="Cancel" runat="server"
-                                Text="Không" CssClass="btn btn-danger" />
+                                Text="Hủy" CssClass="btn btn-danger" />
                         </EditItemTemplate>
                     </asp:TemplateField>
                 </Columns>
